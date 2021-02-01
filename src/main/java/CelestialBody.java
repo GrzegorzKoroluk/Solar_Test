@@ -1,16 +1,24 @@
+import javax.persistence.*;
+
+@Entity
+@Table(name = "celestial_bodies")
 public class CelestialBody {
 
+    @Id
+    @Column(name = "Id")
+    @GeneratedValue(generator = "incrementor")
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Column(name = "Name")
     private String name;
-    private double distanceFromGravityCentre;
-    private int time = 0;
-
-    public CelestialBody() {
-    }
-
-    public CelestialBody(String name, double distanceFromGravityCentre) {
-        this.name = name;
-        this.distanceFromGravityCentre = distanceFromGravityCentre;
-    }
 
     public String getName() {
         return name;
@@ -20,20 +28,24 @@ public class CelestialBody {
         this.name = name;
     }
 
+
+    @Column(name="Distance")
+    private double distanceFromGravityCentre;
+
     public double getDistanceFromGravityCentre() {
         return distanceFromGravityCentre;
     }
 
-    public void setDistanceFromGravityCentre(int distanceFromGravityCentre) {
+    public void setDistanceFromGravityCentre(double distanceFromGravityCentre) {
         this.distanceFromGravityCentre = distanceFromGravityCentre;
     }
 
-    public int getTime() {
-        return time;
+
+    public CelestialBody() {
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public CelestialBody(String name, double distanceFromGravityCentre) {
+        this.name = name;
+        this.distanceFromGravityCentre = distanceFromGravityCentre;
     }
-
 }
