@@ -13,7 +13,7 @@ public class RunProgram {
         celestialBody.setDistanceFromGravityCentre(57.9);
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        
+
         entityManager.persist(celestialBody);
         entityManager.getTransaction().commit();
         entityManagerFactory.close();
